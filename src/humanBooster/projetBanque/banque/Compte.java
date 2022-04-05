@@ -6,7 +6,8 @@ public abstract class Compte {
     protected int solde = 0;
     private static int countComptes;
 
-    public Compte() {
+    public Compte(int solde) {
+        this.solde = solde;
         this.id = ++countComptes;
     }
 

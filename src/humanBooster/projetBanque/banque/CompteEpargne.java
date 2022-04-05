@@ -4,8 +4,8 @@ public class CompteEpargne extends Compte {
 
     private final float taux = 0.75f;
 
-    public CompteEpargne() {
-        super();
+    public CompteEpargne(int solde) {
+        super(solde);
     }
 
     public void calculInterets() {
