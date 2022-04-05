@@ -2,8 +2,8 @@ package humanBooster.projetBanque.banque;
 
 public class ComptePayant extends Compte {
 
-    public ComptePayant(int id, int countComptes) {
-        super(id, countComptes);
+    public ComptePayant() {
+        super();
     }
 
     @Override

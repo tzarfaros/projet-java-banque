@@ -4,11 +4,10 @@ public abstract class Compte {
 
     private int id;
     protected int solde = 0;
-    private int countComptes;
+    private static int countComptes;
 
-    public Compte(int id, int countComptes) {
-        this.id = id;
-        this.countComptes = countComptes;
+    public Compte() {
+        this.id = ++countComptes;
     }
 
     public void verser(float versement) {
@@ -36,7 +35,7 @@ public abstract class Compte {
     }
 
     public void setCountComptes(int countComptes) {
-        this.countComptes = countComptes;
+        Compte.countComptes = countComptes;
     }
 
     @Override
@@ -44,7 +43,6 @@ public abstract class Compte {
         final StringBuilder sb = new StringBuilder("Compte{");
         sb.append("id=").append(id);
         sb.append(", solde=").append(solde);
-        sb.append(", countComptes=").append(countComptes);
         sb.append('}');
         return sb.toString();
     }
