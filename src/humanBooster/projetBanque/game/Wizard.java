@@ -17,9 +17,10 @@ public class Wizard extends Humanoid {
 
     public void spellCast(Humanoid h) {
         if (this.mana >= 10) {
+            System.out.println("Utilisation sort tornade !!!");
             this.mana -= 10;
-            int damage = this.force + this.intelligence;
-            h.receiveDamage(damage);
+            System.out.println(this.force + this.intelligence);
+            h.receiveDamage(this.force + this.intelligence);
         } else {
             System.out.println("Pas assez de mana pour lancer le sort.");
         }
@@ -28,12 +29,12 @@ public class Wizard extends Humanoid {
 
     public void activateShield() {
         if (this.mana >= 3 && !this.shield) {
+            System.out.println("Activation du bouclier magique !!!");
             this.mana -= 3;
             this.shield = true;
             this.hitsOnShield = 0;
         } else {
             System.out.println("Pas assez de mana pour lancer le bouclier magique.");
-            this.shield = false;
         }
     }
 
@@ -49,11 +50,12 @@ public class Wizard extends Humanoid {
 
     @Override
     public void receiveDamage(double damage) {
-        if (this.shield && this.hitsOnShield <= 5) {
-            ++this.hitsOnShield;
+        if (this.shield && this.hitsOnShield < 5) {
+            this.hitsOnShield++;
             this.health -= damage - damage * 0.2;
         } else {
             this.health -= damage;
+            this.shield = false;
 
         }
 

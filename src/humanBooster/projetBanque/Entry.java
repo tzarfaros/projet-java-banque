@@ -13,7 +13,7 @@ import humanBooster.projetBanque.vehicule.*;
 public class Entry {
 
     public static void main(String[] args) {
-        testWizard();
+        testWarrior();
 
     }
 
@@ -39,9 +39,24 @@ public class Entry {
         o.countByBrand("taurus");
     }
 
+    public static void testWarrior() {
+        Humanoid h1 = new Berseker("berserker", 100, 10, 23);
+        Humanoid h2 = new Wizard("wizard", 100, 15, 22, 25);
+        Humanoid h3 = new Warrior("warrior", 120, 20);
+
+        System.out.println("Combat entre Warrior et berserker :");
+        System.out.println(h1);
+        System.out.println(h3);
+        h3.attack(h1);
+        System.out.println(h1);
+        ((Warrior)h3).doubleAttack(h1);
+        System.out.println(h1);
+        System.out.println(h3);
+    }
+
     public static void testWizard() {
-        Humanoid h1 = new Berseker("berserker", 80, 30, 20);
-        Humanoid h2 = new Wizard("wizard", 60, 15, 40, 25);
+        Humanoid h1 = new Berseker("berserker", 80, 10, 23);
+        Humanoid h2 = new Wizard("wizard", 100, 15, 22, 25);
         Humanoid h3 = new Warrior("warrior", 120, 20);
 
         System.out.println("Combat entre Wizard et Berseker :");
@@ -49,13 +64,29 @@ public class Entry {
         System.out.println(h2);
         h2.attack(h1);
         System.out.println(h1);
-        ((Berseker)h1).useRage(h2);
+        ((Wizard)h2).spellCast(h1);
         System.out.println(h1);
         System.out.println(h2);
+        System.out.println("Wizard va encaisser 6 attaques de berserker pour tester son bouclier:");
+        ((Wizard) h2).activateShield();
+        h1.attack(h2);
+        System.out.println(h2);
+        h1.attack(h2);
+        System.out.println(h2);
+        h1.attack(h2);
+        System.out.println(h2);
+        h1.attack(h2);
+        System.out.println(h2);
+        h1.attack(h2);
+        System.out.println(h2);
+        System.out.println("6eme attaque avec bouclier désactivé:");
+        h1.attack(h2);
+        System.out.println(h2);
+        ((Wizard) h2).spellCast(h1);
     }
 
     public static void testBerserker() {
-        Humanoid h1 = new Berseker("berserker", 80, 30, 20);
+        Humanoid h1 = new Berseker("berserker", 80, 30, 8);
         Humanoid h2 = new Wizard("wizard", 60, 15, 40, 25);
 
         System.out.println("Combat entre Berserker et Wizard :");
@@ -69,6 +100,7 @@ public class Entry {
         System.out.println("Wizard attaque le Berserker :");
         h2.attack(h1);
         System.out.println(h1);
+        ((Berseker) h1).useRage(h2);
     }
 
 

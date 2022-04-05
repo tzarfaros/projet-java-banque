@@ -10,6 +10,7 @@ public class Warrior extends Humanoid {
     }
 
     public void doubleAttack(Humanoid h) {
+        System.out.println("Double attaque lancée !!!");
         this.doubleAttackReady = true;
         this.attack(h);
     }
@@ -18,6 +19,7 @@ public class Warrior extends Humanoid {
     public void attack(Humanoid h) {
        if (this.doubleAttackReady) {
            h.receiveDamage(this.force * 0.7 * 2);
+           System.out.println(this.force * 0.7 * 2 + " de dégat.") ;
            this.doubleAttackReady = false;
        } else {
            h.receiveDamage(this.force);
