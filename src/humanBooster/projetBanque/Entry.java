@@ -12,12 +12,6 @@ public class Entry {
     }
 
     public static void exo1() {
-        Compte c1 = new Compte(1, 0);
-        c1.verser(150);
-        c1.retirer(10);
-
-        System.out.println("--------------");
-
         Compte c2 = new CompteSimple(2, 1, 200);
         c2.retirer(100);
         System.out.println(c2);

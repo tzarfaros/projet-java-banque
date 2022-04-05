@@ -1,6 +1,6 @@
 package humanBooster.projetBanque.banque;
 
-public class Compte {
+public abstract class Compte {
 
     private int id;
     protected int solde = 0;
