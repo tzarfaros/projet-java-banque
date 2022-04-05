@@ -13,7 +13,7 @@ import humanBooster.projetBanque.vehicule.*;
 public class Entry {
 
     public static void main(String[] args) {
-        testWarrior();
+        exo2();
 
     }
 
@@ -23,6 +23,8 @@ public class Entry {
         Vehicule v1 = new Car(10, "taurus");
         Vehicule v2 = new Boat(100, "taurus");
         Vehicule v3 = new Plane(1000, "taurus");
+        Vehicule v4 = new Plane(1000, "dark");
+
 
         v1.start();
         v1.stop();
@@ -36,7 +38,10 @@ public class Entry {
         o.add(v1);
         o.add(v2);
         o.add(v3);
+        o.add(v4);
         o.countByBrand("taurus");
+
+        o.startAllVehicules();
     }
 
     public static void testWarrior() {

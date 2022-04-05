@@ -13,7 +13,7 @@ public class Owner {
 
     public void countByBrand(String brand) {
         int number = 0;
-        for (Vehicule vehicule : vehicules) {
+        for (Vehicule vehicule : this.vehicules) {
             if (vehicule.brand == brand) {
                 ++number;
             }
@@ -23,6 +23,16 @@ public class Owner {
 
     public void add(Vehicule v) {
         this.vehicules.add(v);
+    }
+
+    public void startAllVehicules() {
+        for (Vehicule vehicule : this.vehicules) {
+            if (vehicule instanceof Plane) {
+                ((Plane) vehicule).fly();
+            } else if (vehicule instanceof Boat) {
+                ((Boat) vehicule).sail();
+            }
+        }
     }
 
     public String getName() {

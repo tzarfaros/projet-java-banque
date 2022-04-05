@@ -13,4 +13,8 @@ public class Boat extends Vehicule{
     public void stop() {
         System.out.println("Le bateau " + this.brand + " jette l'ancre.");
     }
+
+    public void sail() {
+        System.out.println("Le bateau navigue.");
+    }
 }
