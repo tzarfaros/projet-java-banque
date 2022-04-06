@@ -1,6 +1,6 @@
 package humanBooster.projetBanque.vehicule;
 
-public class Boat extends Vehicule{
+public class Boat extends Vehicule implements Flottant{
 
     public Boat(int engine, String brand) {
         super(engine, brand);
@@ -16,5 +16,20 @@ public class Boat extends Vehicule{
 
     public void sail() {
         System.out.println("Le bateau navigue.");
+    }
+
+    @Override
+    public void naviguer() {
+
+    }
+
+    @Override
+    public void leverAncre() {
+
+    }
+
+    @Override
+    public void jeterAncre() {
+
     }
 }

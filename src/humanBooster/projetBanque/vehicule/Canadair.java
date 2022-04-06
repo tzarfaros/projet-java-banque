@@ -1,21 +1,34 @@
 package humanBooster.projetBanque.vehicule;
 
-public class Plane extends Vehicule implements Volant{
+public class Canadair extends Vehicule implements Flottant, Volant{
 
-    public Plane(int engine, String brand) {
+    public Canadair(int engine, String brand) {
         super(engine, brand);
     }
 
+    @Override
     public void start() {
-        System.out.println("L'avion " + this.brand + " décolle.");
+
     }
 
+    @Override
     public void stop() {
-        System.out.println("L'avion " + this.brand + " ettérit.");
+
     }
 
-    public void fly() {
-        System.out.println("L'avion vol.");
+    @Override
+    public void naviguer() {
+
+    }
+
+    @Override
+    public void leverAncre() {
+
+    }
+
+    @Override
+    public void jeterAncre() {
+
     }
 
     @Override
