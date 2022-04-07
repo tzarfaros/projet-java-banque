@@ -1,25 +1,29 @@
 package humanBooster.projetBanque.banque;
 
+import humanBooster.projetBanque.exceptions.DecouvertException;
+import humanBooster.projetBanque.exceptions.RetraitException;
+
 public abstract class Compte {
 
     private int id;
-    protected int solde = 0;
-    private static int countComptes;
+    protected float solde;
+    public static int countComptes;
 
-    public Compte(int solde) {
+    public Compte(float solde) {
         this.solde = solde;
         this.id = ++countComptes;
     }
 
-    public void verser(float versement) {
-        this.solde += versement;
+    public void verser(float montant){
+        this.solde += montant;
     }
 
-    public void retirer(float versement) {
-        if (this.solde == 0 || this.solde < versement) {
-            System.out.println("Opération refusée, vous n'avez pas les fonds nécessaires.");
-        } else {
-            this.solde -= versement;
+    public void retirer(float montant) throws RetraitException, DecouvertException, DecouvertException {
+        if(montant > solde){
+            throw new RetraitException("Fond insuffisant: " + solde);
+        }else{
+            System.out.println("Transaction ok");
+            this.solde -= montant;
         }
     }
 
@@ -31,12 +35,12 @@ public abstract class Compte {
         this.id = id;
     }
 
-    public int getCountComptes() {
-        return countComptes;
+    public float getSolde() {
+        return solde;
     }
 
-    public void setCountComptes(int countComptes) {
-        Compte.countComptes = countComptes;
+    public void setSolde(float solde) {
+        this.solde = solde;
     }
 
     @Override

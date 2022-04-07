@@ -4,6 +4,8 @@ import humanBooster.projetBanque.banque.Compte;
 import humanBooster.projetBanque.banque.CompteEpargne;
 import humanBooster.projetBanque.banque.ComptePayant;
 import humanBooster.projetBanque.banque.CompteSimple;
+import humanBooster.projetBanque.exceptions.DecouvertException;
+import humanBooster.projetBanque.exceptions.RetraitException;
 import humanBooster.projetBanque.game.Berseker;
 import humanBooster.projetBanque.game.Humanoid;
 import humanBooster.projetBanque.game.Warrior;
@@ -13,7 +15,7 @@ import humanBooster.projetBanque.vehicule.*;
 public class Entry {
 
     public static void main(String[] args) {
-        exo2();
+        exo1();
 
     }
 
@@ -111,7 +113,14 @@ public class Entry {
 
     public static void exo1() {
         Compte c2 = new CompteSimple(0, 200);
-        c2.retirer(100);
+        try{
+            c2.retirer(100);
+        }catch (RetraitException r) {
+            System.out.println(r.getMessage());
+        }catch (DecouvertException d) {
+            System.out.println(d.getMessage());
+        }
+
         System.out.println(c2);
 
         System.out.println("--------------");
@@ -125,7 +134,11 @@ public class Entry {
 
         Compte c4 = new ComptePayant(0);
         c4.verser(100);
-        c4.retirer(50);
+        try{
+            c4.retirer(100);
+        }catch (RetraitException | DecouvertException r) {
+            System.out.println(r.getMessage());
+        }
         System.out.println(c4);
     }
 }

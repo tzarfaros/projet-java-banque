@@ -1,20 +1,24 @@
 package humanBooster.projetBanque.banque;
 
+import humanBooster.projetBanque.exceptions.DecouvertException;
+import humanBooster.projetBanque.exceptions.RetraitException;
+
 public class CompteSimple extends Compte{
 
     private float decouvert;
 
-    public CompteSimple(int solde, float decouvert) {
+    public CompteSimple(float solde, float decouvert) {
         super(solde);
         this.decouvert = decouvert;
     }
 
     @Override
-    public void retirer(float versement) {
-        if (this.solde == (this.solde - this.getDecouvert()) || (0 - this.getDecouvert()) > (0 - versement)) {
-            System.out.println("Opération refusée, vous n'avez pas les fonds nécessaires.");
-        } else {
-            this.solde -= versement;
+    public void retirer(float montant) throws RetraitException, DecouvertException {
+        if(montant > solde + this.decouvert){
+            throw new DecouvertException("Solde insuffisant: "+solde);
+        }else{
+            System.out.println("Transaction ok");
+            this.solde -= montant;
         }
     }
 
